@@ -15,6 +15,7 @@ df['Month'] = df['upload_date'].dt.month
 
 # Create the Dash app
 app = Dash(__name__)
+server = app.server
 
 # Define the layout
 app.layout = html.Div([
