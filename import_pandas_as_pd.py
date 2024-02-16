@@ -37,11 +37,11 @@ app.layout = html.Div([
     [Input('year-dropdown', 'value')]
 )
 def update_yearly_view_count(selected_year):
-    yearly_data = df[df['Year'] == selected_year]
-    yearly_view_count = yearly_data.groupby('Year')['view_count'].sum().reset_index()
-    fig = px.scatter(yearly_view_count, x='Year', y='view_count', title='Total Yearly View Count')
-    fig.update_traces(mode='markers+lines')
-    fig.update_yaxes(type='log')
+    # Filter data for selected year
+    year_df = df[df['Year'] == selected_year]
+    
+    # Total yearly view count
+    fig = px.line(year_df, x='Year', y='view_count', title='Total Yearly View Count')
     return fig
 
 # Callback to update the top 10 videos bar chart
