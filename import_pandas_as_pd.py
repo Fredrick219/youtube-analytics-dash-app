@@ -4,7 +4,7 @@ import dash_html_components as html
 
 # Initialize the Dash app
 app = dash.Dash(__name__)
-
+server = app.server
 # Define the layout of the app
 app.layout = html.Div(children=[
     html.H1(children='Hello Dash'),
